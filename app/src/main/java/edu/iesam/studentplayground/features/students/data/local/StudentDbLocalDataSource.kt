@@ -1,10 +1,13 @@
 package edu.iesam.studentplayground.features.students.data.local
 
+
 import edu.iesam.studentplayground.features.students.domain.Student
 
-class StudentXmlLocalDataSource {
+class StudentDbLocalDataSource {
+
+    private val dataSource : MutableMap<String, Student> = mutableMapOf()
 
     fun save(student: Student) {
-        TODO("Not yet implemented")
+        dataSource.put(student.exp, student)
     }
 }

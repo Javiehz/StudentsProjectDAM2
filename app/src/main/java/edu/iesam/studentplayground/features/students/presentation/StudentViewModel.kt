@@ -6,8 +6,7 @@ import edu.iesam.studentplayground.features.students.domain.Student
 
 class StudentViewModel(private val saveStudentUseCase: SaveStudentUseCase) : ViewModel() {
 
-    fun saveClicked(exp: String, name: String) {
+    fun saveClicked(exp: String, name: String){
         saveStudentUseCase.invoke(Student(exp, name))
     }
-
 }

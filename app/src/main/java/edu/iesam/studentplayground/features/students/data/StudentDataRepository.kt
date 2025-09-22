@@ -10,10 +10,9 @@ class StudentDataRepository(
     private val xmlLocalDataSource: StudentXmlLocalDataSource,
     private val memLocalDataSource: StudentMemLocalDataSource,
     private val apiRemoteDataSource: StudentApiRemoteDataSource
-) : StudentRepository{
+) : StudentRepository {
 
     override fun save(student: Student) {
         memLocalDataSource.save(student)
     }
-
 }
