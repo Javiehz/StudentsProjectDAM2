@@ -12,6 +12,8 @@ import edu.iesam.studentplayground.features.students.data.remote.StudentApiRemot
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
 import edu.iesam.studentplayground.features.students.data.local.StudentMemLocalDataSource
 import edu.iesam.studentplayground.features.students.data.local.StudentXmlLocalDataSource
+import edu.iesam.studentplayground.features.students.domain.DeleteStudentsUseCase
+import edu.iesam.studentplayground.features.students.domain.Student
 
 class StudentActivity : AppCompatActivity() {
 
@@ -32,10 +34,17 @@ class StudentActivity : AppCompatActivity() {
         val mem = StudentMemLocalDataSource()
         val api = StudentApiRemoteDataSource()
         val dataRepository = StudentDataRepository(xml, mem, api)
-        val useCase = SaveStudentUseCase(dataRepository)
+        val saveCase = SaveStudentUseCase(dataRepository)
+        val delCase = DeleteStudentsUseCase(dataRepository)
 
-        val viewModel = StudentViewModel(useCase)
-        viewModel.saveClicked("0001", "nombre1 apellido1 apellido1")
+        val viewModel = StudentViewModel(saveCase, delCase)
+
+        viewModel.saveClicked("0001", "Javier")
+        viewModel.deleteClicked(Student("0002", "Karla"))
+
+
+
+
         Log.d("@dev", "Stop")
     }
 }

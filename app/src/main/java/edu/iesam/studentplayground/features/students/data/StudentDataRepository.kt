@@ -15,4 +15,15 @@ class StudentDataRepository(
     override fun save(student: Student) {
         memLocalDataSource.save(student)
     }
+
+
+
+
+    override fun delete(student: Student) {
+        memLocalDataSource.delete(student)
+    }
+
+
+
+
 }
