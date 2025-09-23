@@ -2,10 +2,12 @@ package edu.iesam.studentplayground.features.students.presentation
 
 import androidx.lifecycle.ViewModel
 import edu.iesam.studentplayground.features.students.domain.DeleteStudentsUseCase
+import edu.iesam.studentplayground.features.students.domain.FetchStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
 import edu.iesam.studentplayground.features.students.domain.Student
 
-class StudentViewModel(private val saveStudentUseCase: SaveStudentUseCase, private val deleteStudentUseCase: DeleteStudentsUseCase) : ViewModel() {
+class StudentViewModel(private val saveStudentUseCase: SaveStudentUseCase, private val deleteStudentUseCase: DeleteStudentsUseCase
+, private val fetchStudentsUseCase: FetchStudentsUseCase) : ViewModel() {
 
     fun saveClicked(exp: String, name: String){
         saveStudentUseCase.invoke(Student(exp, name))
@@ -13,6 +15,10 @@ class StudentViewModel(private val saveStudentUseCase: SaveStudentUseCase, priva
 
     fun deleteClicked(exp: String){
         deleteStudentUseCase.invoke(exp)
+    }
+
+    fun getStudentsClicked():List<Student>{
+        return fetchStudentsUseCase.invoke()
     }
 
 

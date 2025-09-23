@@ -13,6 +13,7 @@ import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
 import edu.iesam.studentplayground.features.students.data.local.StudentMemLocalDataSource
 import edu.iesam.studentplayground.features.students.data.local.StudentXmlLocalDataSource
 import edu.iesam.studentplayground.features.students.domain.DeleteStudentsUseCase
+import edu.iesam.studentplayground.features.students.domain.FetchStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.Student
 
 class StudentActivity : AppCompatActivity() {
@@ -36,12 +37,14 @@ class StudentActivity : AppCompatActivity() {
         val dataRepository = StudentDataRepository(xml, mem, api)
         val saveCase = SaveStudentUseCase(dataRepository)
         val delCase = DeleteStudentsUseCase(dataRepository)
+        val fetchCase = FetchStudentsUseCase(dataRepository)
 
-        val viewModel = StudentViewModel(saveCase, delCase)
+        val viewModel = StudentViewModel(saveCase, delCase, fetchCase)
 
         viewModel.saveClicked("0001", "Javier")
         viewModel.saveClicked("0002", "Karla")
         viewModel.deleteClicked("0001")
+        viewModel.getStudentsClicked()
 
 
 

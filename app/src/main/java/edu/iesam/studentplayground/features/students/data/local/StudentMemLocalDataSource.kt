@@ -17,6 +17,10 @@ class StudentMemLocalDataSource{
         dataSource.remove(exp)
     }
 
+    fun getStudents():List<Student>{
+        return dataSource.values.toList()
+    }
+
 
 
 
