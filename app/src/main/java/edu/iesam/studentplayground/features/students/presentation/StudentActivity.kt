@@ -40,7 +40,8 @@ class StudentActivity : AppCompatActivity() {
         val viewModel = StudentViewModel(saveCase, delCase)
 
         viewModel.saveClicked("0001", "Javier")
-        viewModel.deleteClicked(Student("0002", "Karla"))
+        viewModel.saveClicked("0002", "Karla")
+        viewModel.deleteClicked("0001")
 
 
 

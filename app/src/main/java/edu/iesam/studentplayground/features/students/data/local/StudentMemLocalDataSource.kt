@@ -13,8 +13,8 @@ class StudentMemLocalDataSource{
         dataSource.put(student.exp, student)
     }
 
-    fun delete(student: Student) {
-        dataSource.remove(student.exp)
+    fun delete(exp: String) {
+        dataSource.remove(exp)
     }
 
 
