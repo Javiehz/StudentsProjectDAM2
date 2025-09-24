@@ -5,6 +5,7 @@ interface StudentRepository {
     fun save(student: Student)
     fun delete(student: String)
 
+    fun update(student: Student)
     fun getStudents():List<Student>
 
 

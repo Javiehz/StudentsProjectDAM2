@@ -5,9 +5,10 @@ import edu.iesam.studentplayground.features.students.domain.DeleteStudentsUseCas
 import edu.iesam.studentplayground.features.students.domain.FetchStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
 import edu.iesam.studentplayground.features.students.domain.Student
+import edu.iesam.studentplayground.features.students.domain.UpdateStudentsUseCase
 
 class StudentViewModel(private val saveStudentUseCase: SaveStudentUseCase, private val deleteStudentUseCase: DeleteStudentsUseCase
-, private val fetchStudentsUseCase: FetchStudentsUseCase) : ViewModel() {
+, private val fetchStudentsUseCase: FetchStudentsUseCase, private val updateStudentsUseCase: UpdateStudentsUseCase) : ViewModel() {
 
     fun saveClicked(exp: String, name: String){
         saveStudentUseCase.invoke(Student(exp, name))
@@ -21,5 +22,8 @@ class StudentViewModel(private val saveStudentUseCase: SaveStudentUseCase, priva
         return fetchStudentsUseCase.invoke()
     }
 
+    fun updateClicked(student: Student){
+        updateStudentsUseCase.invoke(student)
+    }
 
 }
