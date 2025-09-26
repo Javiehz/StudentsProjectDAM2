@@ -43,7 +43,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    //UNIT TESTS
+    //Estos implementan jUnit y Mockk para poder hacer tests
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
 
